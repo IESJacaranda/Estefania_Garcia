@@ -11,8 +11,7 @@ public class Punto {
 	public Punto(double coordX, double coordY) {
 		this.coordX = coordX;
 		this.coordY = coordY;
-		
-		
+
 	}
 	
 	
@@ -31,6 +30,23 @@ public class Punto {
 		return sonIguales;
 	}
 	
+	
+	public void moverArriba(double distancia) {
+		this.coordY+=distancia;
+	}
+	
+	public void moverAbajo(double distancia) {
+		this.coordY-=distancia;
+	}
+
+	public void moverDerecha(double distancia) {
+		this.coordX+=distancia;
+	}
+	public void moverIzquierda(double distancia) {
+		this.coordX-=distancia;
+	}
+	
+
 
 	@Override
 	public String toString() {

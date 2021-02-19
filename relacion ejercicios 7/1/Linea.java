@@ -31,46 +31,26 @@ public class Linea {
 	
 	public void moverArriba(double distancia) {
 		
-		double A = puntoA.getCoordY();
-		distancia += A;
-		puntoA.setCoordY(distancia);
-		
-		double B = puntoB.getCoordY();
-		distancia += B;
-		puntoB.setCoordY(distancia);
+		this.puntoA.moverArriba(distancia);
+		this.puntoB.moverArriba(distancia);
 	}
 	
 	public void moverAbajo(double distancia) {
 		
-		double A = puntoA.getCoordY();
-		distancia -= A;
-		puntoA.setCoordY(distancia);
-		
-		double B = puntoB.getCoordY();
-		distancia -= B;
-		puntoB.setCoordY(distancia);
+		this.puntoA.moverAbajo(distancia);
+		this.puntoB.moverAbajo(distancia);
 	}
 	
 	public void moverDerecha(double distancia) {
 		
-		double A = puntoA.getCoordX();
-		distancia += A;
-		puntoA.setCoordX(distancia);
-		
-		double B = puntoB.getCoordX();
-		distancia += B;
-		puntoB.setCoordX(distancia);	
+		this.puntoA.moverDerecha(distancia);
+		this.puntoB.moverDerecha(distancia);	
 	}
 	
 	public void moverIzquierda(double distancia) {
 		
-		double A = puntoA.getCoordX();
-		distancia -= A;
-		puntoA.setCoordX(distancia);
-		
-		double B = puntoB.getCoordX();
-		distancia -= B;
-		puntoB.setCoordX(distancia);
+		this.puntoA.moverIzquierda(distancia);
+		this.puntoB.moverIzquierda(distancia);
 	}
 	
 	

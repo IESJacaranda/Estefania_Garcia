@@ -10,22 +10,27 @@ public class LineaMAIN {
 	
 	public static void main(String[] args) {
 		
-		/*Punto puntito = new Punto(5.0, 3.0);
-		Punto puntito2 = new Punto(3.0, 2.0);
+		//Punto puntito = new Punto(5.0, 3.0);
+		//Punto puntito2 = new Punto(3.0, 2.0);
 		
-		Punto puntito3 = new Punto(5.0, 3.0);
-		Punto puntito4 = new Punto(3.0, 2.0);
+		//Punto puntito3 = new Punto(5.0, 3.0);
+		//Punto puntito4 = new Punto(3.0, 2.0);
 		
-		System.out.println(puntito.equals(puntito2));
+		//System.out.println(puntito.equals(puntito2));
 		
-		Linea line = new Linea(puntito, puntito2);
-		Linea line2 = new Linea(puntito3, puntito4);
+		//Linea line = new Linea(puntito, puntito2);
+		//Linea line2 = new Linea(puntito3, puntito4);
 		
-		System.out.println(line.equals(line2));
+		//System.out.println(line.equals(line2));
 		
-		System.out.println(line.toString());*/
+		//System.out.println(line.toString());
+		
+		//System.out.println(line);
+		//line.moverAbajo(1);
+		//System.out.println(line);
 		
 		interfaz();
+	
 		
 	}
 	static Scanner teclado = new Scanner(System.in);
@@ -35,8 +40,7 @@ public class LineaMAIN {
 		
 		int opcion = 0;
 		Linea nuevaLinea = pedirLinea();
-		
-		
+
 		
 		while(opcion!=3) {
 			System.out.println("Escoge una opción: ");
@@ -46,9 +50,10 @@ public class LineaMAIN {
 			if (opcion<1 || opcion>3) {
 				System.out.println("La opción seleccionada no existe.");
 			}
+			
 			switch (opcion) {
 			case 1:
-				subInterfaz();
+				subInterfaz(nuevaLinea);
 				break;
 			case 2:
 				System.out.println(nuevaLinea.toString());
@@ -62,9 +67,9 @@ public class LineaMAIN {
 		
 	}
 	
-	public static void subInterfaz() {  /*NO FUNCIONA*/
+	public static void subInterfaz(Linea nuevaLinea) { 
 		
-		Linea nuevaLinea = new Linea();
+		
 		System.out.println("Escoge una opción: (A-Arriba, B-Abajo, I-Izquierda, D-Derecha) ");
 		char letra = teclado.nextLine().charAt(0);
 		
@@ -72,19 +77,23 @@ public class LineaMAIN {
 		case 'A':
 			System.out.println("Escriba la distancia que desea mover su línea: ");
 			nuevaLinea.moverArriba(teclado.nextDouble());
+			System.out.println("Su línea ha cambiado a la posición: "+nuevaLinea);
 			
 			break;
 		case 'B':
 			System.out.println("Escriba la distancia que desea mover su línea: ");
 			nuevaLinea.moverAbajo(teclado.nextDouble());
+			System.out.println("Su línea ha cambiado a la posición: "+nuevaLinea);
 			break;
 		case 'I':
 			System.out.println("Escriba la distancia que desea mover su línea: ");
 			nuevaLinea.moverIzquierda(teclado.nextDouble());
+			System.out.println("Su línea ha cambiado a la posición: "+nuevaLinea);
 			break;
 		case 'D':
 			System.out.println("Escriba la distancia que desea mover su línea: ");
 			nuevaLinea.moverDerecha(teclado.nextDouble());
+			System.out.println("Su línea ha cambiado a la posición: "+nuevaLinea);
 			break;
 		
 		default:
@@ -113,8 +122,8 @@ public class LineaMAIN {
 			
 		return nuevaLinea;
 		
-
 }
+	
 }
 
 
