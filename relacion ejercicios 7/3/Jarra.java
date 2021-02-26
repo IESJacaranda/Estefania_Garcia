@@ -9,35 +9,67 @@ public class Jarra {
 	
 	public Jarra() {}
 	
-	public Jarra(double capacidad, double cantidad) {  //repasar --> no puede ser
+	public Jarra(double capacidad) {  
 		this.capacidad = capacidad;
 		this.cantidad = 0.0;
 	}
 
+	/**
+	 * Este método llena una jarra hasta su total capacidad
+	 * @throws Exception  Si la jarra ya está llena
+	 */
 	public void llenarJarra() throws Exception {
 		if(this.cantidad < this.capacidad || this.cantidad == 0) {
 			this.cantidad = this.capacidad;
-		}throw new Exception("No se puede llenar la jarra.");
+			System.out.println("La jarra se ha llenado correctamente.");
+		}
+		else{
+			throw new Exception("No se puede llenar la jarra.");
+		}
 		
 	}
 	
+	/**
+	 * Este método vacía una jarra hasta dejar su cantidad de agua a 0
+	 * @throws Exception Si la jarra ya está vacía
+	 */
 	public void vaciarJarra() throws Exception {
 		if (this.cantidad == this.capacidad || this.cantidad > 0) {
 			this.totalAguaGastada = this.cantidad;
 			this.cantidad = 0.0;
-		}throw new Exception("No se puede vaciar la jarra.");
+			System.out.println("La jarra se ha vaciado correctamente.");
+		}
+		else{
+			throw new Exception("No se puede vaciar la jarra.");
+		}
 	}
 	
-	public void volcarJarra() {
-		
+	/**
+	 * Este método vuelca el contenido de una jarra en otra
+	 * @param jarra
+	 * @throws Exception Si la jarra en la que se desea volcar ya está llena
+	 */
+	public void volcarJarra(Jarra jarra) throws Exception {
+		if(jarra.getCantidad()<jarra.getCapacidad() && this.cantidad!=0) {			
+			while(jarra.getCantidad()<jarra.getCapacidad() && this.cantidad > 0) {
+				this.cantidad-=1;
+				jarra.setCantidad(jarra.getCantidad()+1);
+			}
+			System.out.println("La jarra se ha volcado correctamente.");
+		}else{
+			throw new Exception("No se puede volcar la cantidad de la jarra.");
+		}
+			
 	}
 	
-	
+	/**
+	 * Este método muestra el estado de las jarras
+	 */
 		@Override
 	public String toString() {
 		
-		return "La capacidad de la Jarra es: "+ this.capacidad 
-				+ ", la cantidad de agua es: " + this.cantidad;
+		return "Su capacidad es de: "+ this.capacidad +" litros"
+				+ " y ahora contiene: " + this.cantidad +" litros.";
 	}
 	
 	
