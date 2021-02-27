@@ -6,17 +6,17 @@ public class galaxia_main {
 		// TODO Auto-generated method stub
 		
 		
-		pelicula pel = new pelicula();
-		personaje p1 = new personaje("Yoda", 29, pel, 60, "Yoda", 15);
-		personaje p2 = new personaje("Luke Skywalker", 67, pel, 180, "humano", 80);
-		personaje p3 = new personaje("Chewbacca", 54, pel, 214, "wookiee", 110);
+		Pelicula pel = new Pelicula();
+		Personaje p1 = new Personaje("Yoda", 29, pel, 60, "Yoda", 15);
+		Personaje p2 = new Personaje("Luke Skywalker", 67, pel, 180, "humano", 80);
+		Personaje p3 = new Personaje("Chewbacca", 54, pel, 214, "wookiee", 110);
 
 		
 		System.out.println(p1.toString());
 		
 		
-		pelicula peli = new pelicula("Star Wars: Episodio IV - Una nueva esperanza", 1977, p1, p2, p3);
-		pelicula peli2 = new pelicula("Star Wars: Episodio I - La amenaza fantasma", 1999, p1, p2, p3);
+		Pelicula peli = new Pelicula("Star Wars: Episodio IV - Una nueva esperanza", 1977, p1, p2, p3);
+		Pelicula peli2 = new Pelicula("Star Wars: Episodio I - La amenaza fantasma", 1999, p1, p2, p3);
 		
 		System.out.println(peli.compararPelicula(peli2));
 		

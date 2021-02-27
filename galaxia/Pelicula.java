@@ -1,16 +1,16 @@
 package galaxia;
 
-public class pelicula {
+public class Pelicula {
 
 	private String nombre;
 	private int yearEstreno;
-	private personaje p1;
-	private personaje p2;
-	private personaje p3;
+	private Personaje p1;
+	private Personaje p2;
+	private Personaje p3;
 	
-	public pelicula() {}
+	public Pelicula() {}
 	
-	public pelicula (String nombre, int yearEstreno, personaje p1, personaje p2, personaje p3) {
+	public Pelicula (String nombre, int yearEstreno, Personaje p1, Personaje p2, Personaje p3) {
 		this.nombre = nombre;
 		this.yearEstreno = yearEstreno;
 		this.p1 = p1;
@@ -23,7 +23,7 @@ public class pelicula {
 	 * @param peli
 	 * @return Devuelve un mensaje con el nombre de la película más nueva
 	 */
-	public String compararPelicula(pelicula peli) {
+	public String compararPelicula(Pelicula peli) {
 		String mensaje = "";
 		if(this.yearEstreno > peli.yearEstreno) {
 			mensaje = "La película <"+this.nombre + "> es más nueva que la película <" +peli.nombre +">.";
@@ -105,27 +105,27 @@ uno de los personajes que tenga asignado)
 		this.yearEstreno = yearEstreno;
 	}
 
-	public personaje getP1() {
+	public Personaje getP1() {
 		return p1;
 	}
 
-	public void setP1(personaje p1) {
+	public void setP1(Personaje p1) {
 		this.p1 = p1;
 	}
 
-	public personaje getP2() {
+	public Personaje getP2() {
 		return p2;
 	}
 
-	public void setP2(personaje p2) {
+	public void setP2(Personaje p2) {
 		this.p2 = p2;
 	}
 
-	public personaje getP3() {
+	public Personaje getP3() {
 		return p3;
 	}
 
-	public void setP3(personaje p3) {
+	public void setP3(Personaje p3) {
 		this.p3 = p3;
 	}
 

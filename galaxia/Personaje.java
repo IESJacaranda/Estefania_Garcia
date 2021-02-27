@@ -1,17 +1,17 @@
 package galaxia;
 
-public class personaje {
+public class Personaje {
 
 	private String nombre;
 	private double poderDes;
-	private pelicula pelicula;
+	private Pelicula pelicula;
 	private double estatura;
 	private String especie;
 	private double peso;
 	
-	public personaje() {}
+	public Personaje() {}
 	
-	public personaje(String nombre, double poderDes, pelicula pelicula, double estatura, String especie, double peso) {
+	public Personaje(String nombre, double poderDes, Pelicula pelicula, double estatura, String especie, double peso) {
 		
 		this.nombre = nombre;
 		this.poderDes = poderDes;
@@ -72,12 +72,12 @@ continuación lo que sea mayor, la capacidad de destrucción o el peso
 	}
 
 
-	public pelicula getPelicula() {
+	public Pelicula getPelicula() {
 		return pelicula;
 	}
 
 
-	public void setPelicula(pelicula pelicula) {
+	public void setPelicula(Pelicula pelicula) {
 		this.pelicula = pelicula;
 	}
 
