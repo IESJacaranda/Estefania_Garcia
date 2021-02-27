@@ -3,7 +3,7 @@ package galaxia;
 public class personaje {
 
 	private String nombre;
-	private double destruccion;
+	private double poderDes;
 	private pelicula pelicula;
 	private double estatura;
 	private String especie;
@@ -11,10 +11,10 @@ public class personaje {
 	
 	public personaje() {}
 	
-	public personaje(String nombre, double destruccion, pelicula pelicula, double estatura, String especie, double peso) {
+	public personaje(String nombre, double poderDes, pelicula pelicula, double estatura, String especie, double peso) {
 		
 		this.nombre = nombre;
-		this.destruccion = destruccion;
+		this.poderDes = poderDes;
 		this.pelicula = pelicula;
 		this.estatura = estatura;
 		this.especie = especie;
@@ -22,15 +22,6 @@ public class personaje {
 		
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 
@@ -44,14 +35,14 @@ public class personaje {
 	}
 
 
-	public double getDestruccion() {
-		return destruccion;
+	public double getPoderDes() {
+		return poderDes;
 	}
 
 
-	public void setDestruccion(int destruccion) { //el poder de destruccion tiene q ser entre 1-100
-		if(destruccion>=1 && destruccion<=100) {
-			this.destruccion = destruccion;
+	public void setDestruccion(int poderDes) { //el poder de destruccion tiene q ser entre 1-100
+		if(poderDes>=1 && poderDes<=100) {
+			this.poderDes = poderDes;
 		}
 		
 	}
@@ -64,17 +55,17 @@ continuación lo que sea mayor, la capacidad de destrucción o el peso
 	public String toString() {
 		String mensaje = "";
 		
-		if(this.destruccion>this.peso) {
+		if(this.poderDes>this.peso) {
 			mensaje = "El nombre del personaje es: "+this.nombre + ","
-					+ "\n su estatura es: " + this.estatura + ","
-					+ "\n pertenece a la especie: " + this.especie + ","
-					+ "\n su poder de destrucción es: " + this.destruccion;
+					+ " su estatura es: " + this.estatura + ","
+					+ " pertenece a la especie: " + this.especie + ","
+					+ " y su poder de destrucción es: " + this.poderDes +".";
 		}
-		else if (this.destruccion<this.peso) {
-			mensaje = "El nombre del personaje es: "+this.nombre + ",\n"
-					+ "su estatura es: " +this.estatura + ",\n"
-					+ "pertenece a la especie: " +this.especie + ",\n"
-					+ "su peso es: " + this.peso;
+		else if (this.poderDes<this.peso) {
+			mensaje = "El nombre del personaje es: "+this.nombre + ","
+					+ " su estatura es: " +this.estatura + ","
+					+ " pertenece a la especie: " +this.especie + ","
+					+ " y su peso es: " + this.peso +".";
 		}
 		
 		return mensaje;
