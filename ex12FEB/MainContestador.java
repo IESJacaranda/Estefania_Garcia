@@ -19,7 +19,7 @@ public class MainContestador {
 	}
 	
 	public static void mostrarMenu2() {
-		System.out.println("\nMensaje número 1"+"\nMensaje número 2" + "\nMensaje número 3");
+		System.out.println("\nEscoja el mensaje que desea consultar: \n"+"Mensaje número 1"+"\nMensaje número 2" + "\nMensaje número 3");
 	}
 	
 	public static void mostrarMenu3() {
@@ -30,6 +30,7 @@ public class MainContestador {
 		Scanner teclado = new Scanner(System.in);
 		
 		int menu = 0;
+		int opcion = 0;
 		String mensaje = "";
 		
 		Contestador contestador = new Contestador();
@@ -45,26 +46,54 @@ public class MainContestador {
 				
 			case 2:
 				mostrarMenu2();
-				int opcion = 0;
+				
 				opcion = Integer.parseInt(teclado.nextLine());
 				
-				while (opcion!=1 || opcion!=2 || opcion!=3) {
+				while (opcion!=1 && opcion!=2 && opcion!=3) {
 					System.out.println("La opción seleccionada no existe. Inténtelo de nuevo. ");
 					mostrarMenu2();
 					opcion = Integer.parseInt(teclado.nextLine());
 				}
 				
-				switch (menu) {
+				switch (opcion) {
 				case 1:
 					mostrarMenu3();
-					menu = Integer.parseInt(teclado.nextLine());
-					
-					
+					opcion = Integer.parseInt(teclado.nextLine());
+					try {
+						if (opcion==1) {
+						System.out.println(contestador.oirMensaje(opcion));
+					}else if (opcion==2) {
+						contestador.setMensaje1("");
+					}
+					}catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 					break;
+					
 				case 2:
+					try {
+						if (opcion==2) {
+						System.out.println(contestador.oirMensaje(opcion));
+					}else if (opcion==2) {
+						contestador.setMensaje2("");
+					}
+					}catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 					break;
+					
 				case 3:
+					try {
+						if (opcion==3) {
+						System.out.println(contestador.oirMensaje(opcion));
+					}else if (opcion==2) {
+						contestador.setMensaje3("");
+					}
+					}catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 					break;
+					
 				default:
 					break;
 				}
@@ -96,7 +125,7 @@ public class MainContestador {
 				
 			}
 			
-			
+			teclado.close();
 			
 		}
 		

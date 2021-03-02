@@ -55,6 +55,21 @@ public class Contestador {
 	}
 	
 	
+	public String oirMensaje(int opcion) throws Exception {
+		String mensaje = "";
+		
+		if (opcion==1 && this.mensaje1!="") { //comprobar la opcion y que el mensaje no esté vacío
+			mensaje = this.getMensaje1();
+		}else if (opcion==2 && this.mensaje2!="") {
+			mensaje = this.getMensaje2();
+		}else if(opcion==3 && this.mensaje3!="") {
+			mensaje = this.getMensaje3();
+		}else {
+			throw new Exception("El mensaje seleccionado no existe.");
+		}
+		
+		return mensaje;
+	}
 	
 	
 	
