@@ -23,7 +23,7 @@ public class Empleado {
 		this(nombre,edad);
 		this.genero = genero;
 		this.horario = horario;
-		this.codigo = this.hashCode();
+		this.codigo = Objects.hash(codigo)+Objects.hash(nombre);
 		
 		
 		
@@ -62,12 +62,9 @@ public class Empleado {
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(codigo);
+		return Objects.hash(codigo)+Objects.hash(nombre);
 	}
 
-	
-	
-	
 	
 	
 
