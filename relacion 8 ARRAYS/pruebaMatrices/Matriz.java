@@ -27,7 +27,17 @@ public class Matriz {
 		//System.out.println(imprimirEnString(rotarAlaDerecha(matriz)));
 		//System.out.println(imprimirEnString(rotarAlaIzquierda(matriz)));
 		
-		System.out.println(rotarMatriz(matriz, derecha));
+		try {
+			System.out.println(sonMatricesIguales(rotarAlaDerecha(matriz), derecha));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			System.out.println(sonMatricesIguales(rotarAlaIzquierda(derecha), matriz));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 	
@@ -84,7 +94,11 @@ public class Matriz {
 
 	
 	
-	
+	/**
+	 * convierte el formato de la matriz añadiendo corchetes de inicio, fin y comas
+	 * @param matriz
+	 * @return matriz con formato
+	 */
 	public static String imprimirEnString(int [] [] matriz) {
 		
 		StringBuilder sb = new StringBuilder();
@@ -119,7 +133,12 @@ public class Matriz {
 	}
 	
 	
-	
+	/**
+	 * Este metodo suma dos matrices
+	 * @param matrizA
+	 * @param matrizB
+	 * @return la suma de dos matrices
+	 */
 	public static int [][] sumarMatrices(int [][] matrizA, int [][] matrizB){
 		
 		int[][] resultado = null;
@@ -141,7 +160,12 @@ public class Matriz {
 	}
 	
 	
-	
+	/**
+	 * Este metodo recibe dos matrices y las resta
+	 * @param matrizA
+	 * @param matrizB
+	 * @return
+	 */
 	public static int [][] restarMatrices(int [][] matrizA, int [][] matrizB){
 		
 		int[][] resultado = null;
@@ -163,7 +187,12 @@ public class Matriz {
 	}
 	
 	
-	
+	/**
+	 * Este método concatena dos vectores
+	 * @param vector1
+	 * @param vector2
+	 * @return un único vector que contiene los dos anteriores
+	 */
 	public static int [] concatenarListas(int[] vector1, int [] vector2) {
 		int [] resultado = null;
 		
@@ -183,7 +212,11 @@ public class Matriz {
 			
 		}
 	
-	
+	/**
+	 * Rota una matriz a la derecha
+	 * @param matriz
+	 * @return matriz rotada a la derecha
+	 */
 	public static int [][] rotarAlaDerecha(int [][] matriz) {
 		
 		int [][] matrizDer = new int[matriz.length][matriz.length];
@@ -199,7 +232,11 @@ public class Matriz {
 		return matrizDer;
 		
 	}
-	
+	/**
+	 * Rota una matriz a la izquierda
+	 * @param matriz
+	 * @return matriz rotada a la izquierda
+	 */
 	public static int [][] rotarAlaIzquierda(int [][] matriz){
 		
 		int [][] matrizIzq = new int[matriz.length][matriz.length];
@@ -213,20 +250,53 @@ public class Matriz {
 		
 		return matrizIzq;
 	}
-	
-	public static boolean rotarMatriz(int [][] matrizA, int [][] matrizB) { //no funciona
+	/**
+	 * Comprueba que si dos matrices son iguales pero rotadas
+	 * @param matrizA
+	 * @param matrizB
+	 * @return
+	 * @throws Exception 
+	 */
+	public static boolean sonMatricesIguales(int [][] matrizA, int [][] matrizB) throws Exception {
 		
-		boolean resultado = false;
+		boolean sonIguales = true;
 		
-		if (rotarAlaDerecha(matrizA)==matrizB) {
-			resultado = true;
+		
+		if(matrizA!=null && matrizB!=null && matrizA.length == matrizB.length 
+				&& matrizA[0]!=null && matrizB[0]!=null && 
+				matrizA[0].length == matrizB[0].length) {
+			
+			for (int i =0; i<matrizA.length && sonIguales;i++) {
+				for(int j=0; j<matrizA[i].length && sonIguales;j++) {
+					
+					if(matrizA[i][j]!=matrizB[i][j]) {
+						sonIguales = false;
+					}
+				
+				}
+			}
+			
+		}else {
+			throw new Exception("Estas matrices no se pueden comparar.");
 		}
 		
-		return resultado;
+		
+		return sonIguales;
 	}
 	
 	
+	
+	public static boolean sonMatricesIguales2() {
 		
+		
+		
+		
+		
+		return false;
+		
+	}
+		
+	
 	}
 
 
