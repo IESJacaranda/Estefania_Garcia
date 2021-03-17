@@ -39,6 +39,8 @@ public class Matriz {
 			System.out.println(e.getMessage());
 		}
 		
+		
+		
 	}
 	
 	
@@ -225,7 +227,7 @@ public class Matriz {
 			for( int j=0; j<matriz.length;j++) {	//columna pasa a la fila --> j cambia de pos
 				//3,0,0 >> 0,0,3 --> primero > último; segundo > penúltimo; último > primero
 				
-				matrizDer[j][matriz.length-1-i] = matriz[i][j];
+				matrizDer[j][matriz.length-1-i] = matriz[i][j];  //length-1 porque la matriz empieza a contar desde 0, por lo que aunque tenga 4 valores tiene 3 posiciones: 0-1-2-3
 			}
 		}
 		
@@ -250,8 +252,10 @@ public class Matriz {
 		
 		return matrizIzq;
 	}
+	
+	
 	/**
-	 * Comprueba que si dos matrices son iguales pero rotadas
+	 * Dos matrices son iguales si sus dimensiones son las mismas (numero de filas y columnas)
 	 * @param matrizA
 	 * @param matrizB
 	 * @return
@@ -285,14 +289,46 @@ public class Matriz {
 	}
 	
 	
+	//ejercicio 6//
 	
-	public static boolean sonMatricesIguales2() {
+	public static int [][]	rotarMatrizDerechaJM(int[][] matriz){
+		
+		int [][] matrizRotada = new int [matriz[0].length][matriz.length];
+		int nFilas = matriz.length;
+		
+		for(int i=0; i<matriz.length;i++) {
+			for (int j=0; j<matriz[i].length;j++) {
+				matrizRotada[j][nFilas-1-i]= matriz[i][j];
+			}
+		}
 		
 		
+		return matrizRotada;
+	}
+	
+	
+	public static int [][] rotarMatrizInversaJM(int [][] matriz){
+		return rotarMatrizDerechaJM(rotarMatrizDerechaJM(matriz));
+	}
+	
+	public static int [][] rotarMatrizIzquierdaJM(int [][] matriz){
+		return rotarMatrizDerechaJM(rotarMatrizInversaJM(matriz));
+	}
+	
+	/**
+	 * este metodo comprueba si las matrices que recibe como parametros, son equivalentes,
+	 * es decir si contienen los mismos elementos pero rotados
+	 * @param matrizA matriz original
+	 * @param matrizB matriz original o rotada
+	 * @return true si son equivalentes, false si no lo son
+	 * @throws Exception 
+	 */
+	public static boolean compruebaMatricesEquivalentesJM(int [][] matrizA, int [][] matrizB) throws Exception {
 		
-		
-		
-		return false;
+		return sonMatricesIguales(matrizA, matrizB)
+				|| sonMatricesIguales(matrizA, rotarMatrizInversaJM(matrizB))
+				|| sonMatricesIguales(matrizA, rotarMatrizIzquierdaJM(matrizB))
+				|| sonMatricesIguales(matrizA, rotarMatrizDerechaJM(matrizB));
 		
 	}
 		
