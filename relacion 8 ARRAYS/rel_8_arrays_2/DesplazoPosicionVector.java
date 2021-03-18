@@ -1,4 +1,8 @@
+//Ctrl Shift M --> para importar otros metodos
+
 package rel_8_arrays_2;
+
+import static pruebaMATRIZ.Matriz.imprimirEnString2;
 
 import java.util.Scanner;
 
@@ -99,7 +103,13 @@ public class DesplazoPosicionVector {
     	Scanner teclado = new Scanner(System.in);
 		int[] listaNumeros = new int[10];
     	
+		
         for (int i = 0; i < listaNumeros.length; i++) {
+        	
+        	//System.out.println("Introduce el número en la posición ("+ (i+1)+"/"+listaNumeros.length+"): ");
+        	//listaNumeros[i] = Integer.parseInt(teclado.nextLine());
+		
+        	
         	if (i==0) {
         		System.out.print("Introduce el número en la posición (1/10): ");
             listaNumeros[i] = Integer.parseInt(teclado.nextLine());
@@ -154,7 +164,7 @@ public class DesplazoPosicionVector {
     	
     	
     	try {
-			System.out.println("Vector después de desplazar a la derecha: "+ Matriz.imprimirEnString2(desplazarPosicionDerecha(v1)));
+			System.out.println("Vector después de desplazar a la derecha: "+ imprimirEnString2(desplazarPosicionDerecha(v1)));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
