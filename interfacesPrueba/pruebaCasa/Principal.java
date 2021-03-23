@@ -23,7 +23,7 @@ public class Principal {
 		System.out.println("---------------------------------------");
 		
 		InstrumentoViento f2 = new InstrumentoViento("flauta", "madera");
-		//en este caso al usar el filtro InstrumentoViento que está implementado por ambas interfaces,
+		//en este caso al usar el filtro de la clase InstrumentoViento que está implementado por ambas interfaces,
 		//tengo acceso los metodos de las dos sin tener que hacer casting
 		
 		System.out.println(f2.afinarInstrumento());
@@ -46,6 +46,16 @@ public class Principal {
 		//no puedo acceder a los metodos afinar, tocar y tipoDeInstrumento
 		//porque pertenecen a la interfaz IinstrumentoMusical y no puedo hacer un new de una interfaz
 		
+		System.out.println("---------------------------------------");
+		
+		Violin v = new Violin(4, "violin");
+		System.out.println(v.afinarInstrumento());
+		System.out.println(v.tocarInstrumento());
+		System.out.println(v.tipoDeInstrumento());
+		System.out.println(v.emitirSonido());
+		System.out.println(v.esPosibleTocarConLosDedos());
+		
 	}
+	
 
 }

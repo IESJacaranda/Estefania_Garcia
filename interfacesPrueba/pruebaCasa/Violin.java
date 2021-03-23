@@ -10,8 +10,8 @@ public class Violin extends InstrumentoCuerda {
 		
 	}
 	
-	public boolean esPosibleTocarConLosDedos() {
-		return false;
+	public String esPosibleTocarConLosDedos() {
+		return "No, necesitas usar el arco para tocar instrumentos de cuerda frotada";
 	}
 
 }
