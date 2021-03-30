@@ -23,73 +23,44 @@ import java.util.Scanner;
 
 public class Fecha {
 
-	public static void main(String[] args) {
-		
-
-	}
+	private int day;
+	private int month;
+	private int year;
 	
 	private static String[] listaMeses= {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
 									"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
+	private static int[] dias_mes= {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	
 	
 	static Scanner teclado = new Scanner(System.in);
 	
-	public static String pasarAformatoLargo(int day, int month, int year) { //completar
+	public Fecha(int day, int month, int year) throws Exception {
 		
-		
-		
-		return "La fecha en formato largo es " +day+ " de " +listaMeses[month-1]+ " de " +year+".";
-	}
-	
-	
-	public static int getDay(int day) {  //completar
-		
-		//int month = getMonth();
-		
-		//int year = getYear();
-		
-		System.out.println("Introduce el día de la fecha: ");
-		
-		day = Integer.parseInt(teclado.nextLine());
-		
-		
-		
-		
-		return day;
-	}
-	
-	
-	public static int getMonth() throws Exception {
-		
-		int month;
-		
-		System.out.println("Introduce el mes de la fecha: ");
-		
-		month = Integer.parseInt(teclado.nextLine());
-		
-		if(month<1 || month>12) {
-			throw new MonthException();
+		if(comprobarFecha(day, month, year)) {
+			this.day = day;
+			this.month = month;
+			this.year = year;
+		}else {
+			throw new FechaIncorrectaException();
 		}
 		
-		return month;
 	}
 	
-	
-	public static int getYear() throws YearException {
+	private boolean comprobarFecha(int day, int month, int year) {
 		
-		int year;
+		boolean esCorrecta = false;
 		
-		System.out.println("Introduce el año de la fecha: ");
-		
-		year = Integer.parseInt(teclado.nextLine());
-		
-		if (year<0 || year>2099) {
-			throw new YearException();
-		}
-		
-		
-		return year;
+		if(day> 0 && month >0) {
+			if(dias_mes[month-1]>=day) {
+				esCorrecta =  true;
+			}else if(isLeapYear(year) && month==2 && day==29) { 
+				esCorrecta = true;
+			}
+			
+		}return esCorrecta;
 	}
+	
 	
 	
 	public static boolean isLeapYear(int year) {
@@ -102,5 +73,11 @@ public class Fecha {
 		return esBisiesto;
 	}
 	
+	
+	public String pasarAformatoLargo() { 
+		
+		
+		return "La fecha en formato largo es " +this.day+ " de " +listaMeses[this.month-1]+ " de " +this.year+".";
+	}
 
 }
