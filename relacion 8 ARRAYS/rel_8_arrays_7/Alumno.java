@@ -66,6 +66,31 @@ public class Alumno {
 		//System.out.println(Arrays.toString(notasAlumnos));
 		
 	}
+	
+	/**
+	 * este metodo devuelve los alumnos que tienen un cinco o más en su nota
+	 */
+	public static void listarAlumnosAprobados() {
+		
+		for(int i = 0; i<notasAlumnos.length;i++) {
+			if (notasAlumnos[i]>=5) {
+				System.out.println(nombreAlumnos[i] + " con un "+notasAlumnos[i]+".");
+			}
+		}
+	}
+	
+	/**
+	 * este metodo devuelve los alumnos que tienen menos de un cinco en su nota
+	 */
+	public static void listarAlumnosSuspensos() {
+		
+		for(int i = 0; i<notasAlumnos.length;i++) {
+			if (notasAlumnos[i]<5) {
+				System.out.println(nombreAlumnos[i] + " con un "+notasAlumnos[i]+".");
+			}
+		}
+	}
+	
 	/**
 	 * este metodo calcula la nota media del array notasAlumnos
 	 * @return double con la media
@@ -79,6 +104,58 @@ public class Alumno {
 		
 		return suma/notasAlumnos.length;
 	}
+	
+	/**
+	 * Este metodo selecciona los alumnos de la lista que tienen más de una nota que se introduce por teclado
+	 * @param nota
+	 */
+	public static void buscarNota(double nota) {
+		
+		for(int i = 0; i<notasAlumnos.length;i++) {
+			if (notasAlumnos[i]>nota) {
+				System.out.println(nombreAlumnos[i] + " con un "+notasAlumnos[i]+".");
+			}
+		}
+	}
+	
+	/**
+	 * Este metodo obtiene la maxima nota y la minima nota de todos los alumnos de la clase
+	 * @return la nota maxima y la nota minima
+	 */
+	public static String obtenerMaximayMinima() {
+		String mensaje;
+		double max = notasAlumnos[0];
+		double min = notasAlumnos[0];
+		int i;
+		String nombre = nombreAlumnos[0];
+		String nombre2 = nombreAlumnos[0];
+		
+		for (i=0; i<notasAlumnos.length;i++) {
+			
+			if(max<notasAlumnos[i]) {
+				max = notasAlumnos[i];
+				nombre = nombreAlumnos[i];
+			}
+			if(min>notasAlumnos[i]) {
+				min = notasAlumnos[i];
+				nombre2 = nombreAlumnos[i];
+			}
+			
+		}
+		mensaje = "El alumno "+nombre+ " tiene la máxima nota con un "+max
+				+"\nEl alumno "+nombre2+ " tiene la mínima nota con un "+min;
+		
+		
+		return mensaje;
+	}
+	
+	
+	public static void ordenarClasePorNota() { //falta mejorar mostrando los nombres con sus notas
+		Arrays.sort(notasAlumnos);
+		for (double nota : notasAlumnos)
+			System.out.println(nota);
+	}
+	
 	public static void mostrarMenu() {
 		System.out.println("\n1. Mostrar el nombre y la nota de los alumnos aprobados.\n" + 
 				"2. Mostrar el nombre y la nota los alumnos suspensos.\n" + 
@@ -103,20 +180,14 @@ public class Alumno {
 			switch (opcion) {
 			case 1:
 				System.out.println("Los alumnos aprobados son: ");
-				for(int i = 0; i<notasAlumnos.length;i++) {
-					if (notasAlumnos[i]>=5) {
-						System.out.println(nombreAlumnos[i] + " con un "+notasAlumnos[i]+".");
-					}
-				}
+				listarAlumnosAprobados();
+				
 				break;
 			
 			case 2:
 				System.out.println("Los alumnos suspensos son: ");
-				for(int i = 0; i<notasAlumnos.length;i++) {
-					if (notasAlumnos[i]<5) {
-						System.out.println(nombreAlumnos[i] + " con un "+notasAlumnos[i]+".");
-					}
-				}
+				listarAlumnosSuspensos();
+				
 				break;
 				
 			case 3:
@@ -127,29 +198,17 @@ public class Alumno {
 				System.out.println("Escribe la nota a partir de la que quieres buscar: ");
 				numNota = Double.parseDouble(teclado.nextLine());
 				System.out.println("\nLos alumnos que tienen más de un "+numNota+ " son: ");
-				for(int i = 0; i<notasAlumnos.length;i++) {
-					if (notasAlumnos[i]>numNota) {
-						System.out.println(nombreAlumnos[i] + " con un "+notasAlumnos[i]+".");
-					}
-				}
+				buscarNota(numNota);
+				
 				break;
 				
 			case 5:
-				/* NO FUNCIONA
-				double max = notasAlumnos[0];
-				int i;
-				for (i=0; i<notasAlumnos.length;i++) {
-					if(max<notasAlumnos[i]) {
-						max = notasAlumnos[i];
-					}
-				}
-				System.out.println("El alumno "+nombreAlumnos[i]+ " tiene la máxima nota con un "+max);
-				
-				*/
+				System.out.println(obtenerMaximayMinima());
 				
 				break;
 				
 			case 6:
+				ordenarClasePorNota();
 				
 				break;
 				
