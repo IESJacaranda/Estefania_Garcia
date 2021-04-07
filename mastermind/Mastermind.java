@@ -20,7 +20,7 @@ public class Mastermind {
 	 * este método genera una clave aleatoria de 4 cifras
 	 * @return entero de 4 cifras
 	 */
-	public static String generarClave() {
+	public String generarClave() {
 		int claveSecreta = ThreadLocalRandom.current().nextInt(1000, 10000);
 		String cs = Integer.toString(claveSecreta); //lo convierto a String para luego poder comparar las cadenas
 		return cs;
@@ -29,7 +29,7 @@ public class Mastermind {
 	/**
 	 * Este metodo comprueba si la clave introducida tiene 4 cifras
 	 * @param clave
-	 * @return true si la la clave cumple las condiciones
+	 * @return true si la clave cumple las condiciones
 	 * @throws Exception si la clave tiene +- 4 cifras
 	 */
 	public boolean comprobarClaveUsuario(String clave) throws Exception {
@@ -41,52 +41,43 @@ public class Mastermind {
 		return true;
 	}
 	
-	public String compararClaves(String clave) {
+	public String compararClaves(String clave, String clave2) {
 		
 		String mensaje = "";
 		String mensaje2 = "";
 		int coincidencias = 0;
 		int aciertos = 0;
-		//int intentos = 0;
 		
-		
-		
-		for(int i=0; i<clave.length(); i++) {
+					//comparar aciertos
+				if (clave.charAt(0)==clave2.charAt(0)) {    
+				    aciertos+=1;
+				  }
+				if(clave.charAt(1)==clave2.charAt(1)) {
+					  aciertos+=1;  
+				  }
+				if(clave.charAt(2)==clave2.charAt(2)) {
+					  aciertos+=1;  
+				  }
+				if(clave.charAt(3)==clave2.charAt(3)) {
+					  aciertos+=1;  
+				  }
+					//comparar coincidencias
+				if (clave.charAt(0)==clave2.charAt(0)|| clave.charAt(0)==clave2.charAt(1) ||clave.charAt(0)==clave2.charAt(2) ||clave.charAt(0)==clave2.charAt(3)) {    
+				    coincidencias+=1;
+				  }
+				if (clave.charAt(1)==clave2.charAt(0) || clave.charAt(1)==clave2.charAt(1) || clave.charAt(1)==clave2.charAt(2) ||clave.charAt(1)==clave2.charAt(3)) {    
+				    coincidencias+=1;
+				  }
+				if (clave.charAt(2)==clave2.charAt(0) ||clave.charAt(2)==clave2.charAt(1) ||clave.charAt(2)==clave2.charAt(2) || clave.charAt(2)==clave2.charAt(3)) {    
+				    coincidencias+=1;
+				  }
+				if (clave.charAt(3)==clave2.charAt(0) ||clave.charAt(3)==clave2.charAt(1) ||clave.charAt(3)==clave2.charAt(2) || clave.charAt(3)==clave2.charAt(3)) {    
+				    coincidencias+=1;
+				  }
 			
-				//comparar aciertos
-			if (clave.charAt(0)==this.claveSecreta.charAt(0)) {    
-			    aciertos++;
-			  }
-			if(clave.charAt(1)==this.claveSecreta.charAt(1)) {
-				  aciertos++;  
-			  }
-			if(clave.charAt(2)==this.claveSecreta.charAt(2)) {
-				  aciertos++;  
-			  }
-			if(clave.charAt(3)==this.claveSecreta.charAt(3)) {
-				  aciertos++;  
-			  }
-		
-		
-			//comparar coincidencias
-			if (clave.charAt(0)==this.claveSecreta.charAt(1) ||clave.charAt(0)==this.claveSecreta.charAt(2) ||clave.charAt(0)==this.claveSecreta.charAt(3)) {    
-			    coincidencias++;
-			  }
-			if (clave.charAt(1)==this.claveSecreta.charAt(0) ||clave.charAt(1)==this.claveSecreta.charAt(2) ||clave.charAt(1)==this.claveSecreta.charAt(3)) {    
-			    coincidencias++;
-			  }
-			if (clave.charAt(2)==this.claveSecreta.charAt(0) ||clave.charAt(2)==this.claveSecreta.charAt(1) ||clave.charAt(2)==this.claveSecreta.charAt(3)) {    
-			    coincidencias++;
-			  }
-			if (clave.charAt(3)==this.claveSecreta.charAt(0) ||clave.charAt(3)==this.claveSecreta.charAt(1) ||clave.charAt(3)==this.claveSecreta.charAt(2)) {    
-			    coincidencias++;
-			  }
-		//intentos++;
-		
-		}
-		
 			
-			if(coincidencias==0) {
+		
+		if(coincidencias== 0) {
 			mensaje = "No coincide ningún dígito";
 		}else if(coincidencias==1) {
 			mensaje = "Coincide 1 dígito";
@@ -96,31 +87,30 @@ public class Mastermind {
 			mensaje = "Coinciden 3 dígitos";
 		}else if(coincidencias==4) {
 			mensaje = "Coinciden 4 dígitos";
+			
 		}
 		
 		if(aciertos==0) {
-			mensaje2 = "Ninguno en posición correcta";
+			mensaje2 = "Ningún dígito en posición correcta";
 		}else if(aciertos==1) {
 			mensaje2 = "1 dígito en posición correcta";
 		}else if(aciertos==2) {
 			mensaje2 = "2 dígitos en posición correcta";
 		}else if(aciertos==3) {
-			mensaje = "3 dígitos en posición correcta";
+			mensaje2 = "3 dígitos en posición correcta";
 		}else if(aciertos==4) {
 			mensaje2 = "Enhorabuena, has acertado la clave secreta";
 		}
+		
 			
+		return mensaje +"\n" + mensaje2;
 		
 		
-		return mensaje + mensaje2;
+		
+		
 	}
 	
 
-	
-	
-	
-	
-	
 	
 	
 	
