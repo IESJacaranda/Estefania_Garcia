@@ -14,7 +14,8 @@ operaciones:
 
 package rel_8_arrays_7;
 
-import java.util.Arrays;
+//import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Alumno {
@@ -149,11 +150,38 @@ public class Alumno {
 		return mensaje;
 	}
 	
-	
-	public static void ordenarClasePorNota() { //falta mejorar mostrando los nombres con sus notas
-		Arrays.sort(notasAlumnos);
-		for (double nota : notasAlumnos)
-			System.out.println(nota);
+	/**
+	 * Este metodo ordena los dos vectores de menor a mayor nota
+	 */
+	public static void ordenarClasePorNotaMayor() { 
+		//Arrays.sort(notasAlumnos);
+		//for (double nota : notasAlumnos)
+			//System.out.println(nota);
+		
+		double auxNota;
+		String auxNombre;
+		
+		for (int i = 0; i<notasAlumnos.length; i++) {
+			for (int j = 0; j<notasAlumnos.length-1-i; j++) { //-1 por outofbounded
+				
+				if(notasAlumnos[i]>notasAlumnos[i+1]) { //compruebo si hay que intercambiar los elementos de notas
+					//si la nota de la posicion i > que la de la posicion siguiente, las intercambiamos y así la mayor se pone delante de la menor
+					auxNota = notasAlumnos[i];
+					notasAlumnos[i]= notasAlumnos[i+1];
+					notasAlumnos[i+1]=auxNota;
+					//hacemos lo mismo con el vector de los nombres para que concuerden las posiciones de nombre y nota
+                    auxNombre=nombreAlumnos[i];
+                    nombreAlumnos[i]=nombreAlumnos[i+1];
+                    nombreAlumnos[i+1]=auxNombre;
+					
+				}
+			}
+		}
+		
+		//imprimo los vectores ordenados
+		for(int i =0; i<notasAlumnos.length;i++) {
+			System.out.println(nombreAlumnos[i]+" tiene una nota de "+notasAlumnos[i]+".\n");
+		}
 	}
 	
 	public static void mostrarMenu() {
@@ -208,7 +236,8 @@ public class Alumno {
 				break;
 				
 			case 6:
-				ordenarClasePorNota();
+				System.out.println("El listado de alumnos ordenados de la menor nota a la mayor es: \n");
+				ordenarClasePorNotaMayor();
 				
 				break;
 				
