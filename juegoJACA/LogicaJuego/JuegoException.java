@@ -1,4 +1,4 @@
-package juegoJACA;
+package juegoJACA.LogicaJuego;
 
 public class JuegoException extends Exception {
 

@@ -1,8 +1,8 @@
-package juegoJACA;
+package juegoJACA.Elementos;
 
-public class Elemento {
+public abstract class Elemento {
 
-	private char simbolo;
+	public char simbolo;
 	
 	public Elemento() {
 		super();

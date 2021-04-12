@@ -1,4 +1,4 @@
-package juegoJACA;
+package juegoJACA.Elementos;
 
 public class Jugador extends Elemento {
 	
