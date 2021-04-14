@@ -6,11 +6,11 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		Barco v = new Velero("2854LK", 18.5, 2000, 2);
+		Embarcacion v = new Velero("2854LK", 18.5, 2000, 2);
 
 		Yate y = new Yate("1425PL", 21.2, 2012, 300, 3);
 		
-		Barco d = new Deportiva("1147KJ", 11.5, 2019, 200);
+		Embarcacion d = new Deportiva("1147KJ", 11.5, 2019, 200);
 
 		System.out.println(v.getMatricula());
 		System.out.println(y.getPotencia());

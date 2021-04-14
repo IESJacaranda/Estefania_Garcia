@@ -1,6 +1,6 @@
 package ejeHERENCIA.ejer2;
 
-public class Deportiva extends Barco {
+public class Deportiva extends Embarcacion {
 
 	private int potencia;
 	

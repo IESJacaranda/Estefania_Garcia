@@ -26,7 +26,7 @@ public class Alquiler {
 	private LocalDate fechaIni;
 	private LocalDate fechaFin;
 	private int posicionAmarre;
-	private Barco barco;
+	private Embarcacion barco;
 	
 	
 	public Alquiler() {
@@ -34,7 +34,7 @@ public class Alquiler {
 	}
 	
 
-	public Alquiler(Cliente cli, LocalDate fechaIni, LocalDate fechaFin, int posicionAmarre, Barco barco) {
+	public Alquiler(Cliente cli, LocalDate fechaIni, LocalDate fechaFin, int posicionAmarre, Embarcacion barco) {
 		super();
 		this.cli = cli;
 		this.fechaIni = fechaIni;
