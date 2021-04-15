@@ -3,7 +3,7 @@ package ejeHERENCIA.ejer1;
 public class Titular {
 
 	private String nombre;
-	protected static int edad;
+	protected int edad;
 	
 	public Titular() {}
 
@@ -18,12 +18,12 @@ public class Titular {
 		return "El titular es " + this.nombre + "y su edad es "+this.edad;
 	}
 
-	public static int getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 
-	public static void setEdad(int edad) {
-		Titular.edad = edad;
+	public void setEdad(int edad) {
+		this.edad = edad;
 	}
 	
 	

@@ -33,12 +33,13 @@ public class CuentaJoven extends Cuenta{
 		if(esTitularValido()) {
 			this.titular = titular;
 		}
+		this.bonificacion = Bonificacion.CUENTA_JOVEN;
 		
 	}
 
 	public boolean esTitularValido() {
 		boolean esValido = false;
-		if(titular.getEdad()>=18 && titular.getEdad()<=25) {
+		if(this.getTitular().getEdad()>=18 && this.getTitular().getEdad()<=25) {
 			esValido = true;
 		}
 	
@@ -50,7 +51,7 @@ public class CuentaJoven extends Cuenta{
 		if(esTitularValido()) {
 			super.hacerReintegro(reintegro);
 		}else {
-			System.out.println("No puede retirar dinero de esta cuenta.");
+			throw new Exception ("Este titular no puede retirar dinero de esta cuenta.");
 		}
 		
 	}
@@ -66,6 +67,7 @@ public class CuentaJoven extends Cuenta{
 		return bonificacion;
 	}
 
+	
 	
 
 	
