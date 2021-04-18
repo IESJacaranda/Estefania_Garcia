@@ -1,12 +1,14 @@
 package relac10.AvanzPOO.ejer2;
 
-public abstract class Vehiculo {
+import relac10.AvanzPOO.ejer2.GamaException;
+import relac10.AvanzPOO.ejer2.GamaVehiculo;
 
+public abstract class AbstractVehiculo {
+	
 	protected String matricula;
 	protected String tipoGama;
 	
-	
-	public Vehiculo(String matricula, String tipoGama) throws GamaException{
+	public AbstractVehiculo(String matricula, String tipoGama) throws GamaException{
 		this.matricula = matricula;
 		if(tipoGama.equalsIgnoreCase("BAJA") || tipoGama.equalsIgnoreCase("MEDIA") || tipoGama.equalsIgnoreCase("ALTA")){
 			this.tipoGama = tipoGama;
@@ -16,19 +18,7 @@ public abstract class Vehiculo {
 		
 	}
 	
-	
-	public abstract void darDeAlta();
-//	{
-//		int contC = 0;
-//		int contM = 0;
-//		int contF = 0;
-//		if(contC+contM+contF<=200) {
-//			
-//		}
-//	}
-	
-	
-	public double calcularAlquiler() {
+	public  double calcularAlquiler() {
 		
 		double precioBase = 0.0;
 		
@@ -40,37 +30,28 @@ public abstract class Vehiculo {
 			precioBase = GamaVehiculo.ALTA.getPrecio();
 		}
 		return precioBase;
-		
 	}
-
-
 	
+	
+	
+
 	public String getMatricula() {
 		return matricula;
 	}
-
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 
-
 	public String getTipoGama() {
 		return tipoGama;
 	}
 
-
 	public void setTipoGama(String tipoGama) {
 		this.tipoGama = tipoGama;
 	}
+	
+	
+	
 
-
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -1,7 +1,7 @@
 package relac10.AvanzPOO.ejer2;
 
 public enum GamaVehiculo {
-
+	
 	BAJA(30),
 	MEDIA(40),
 	ALTA(50);
@@ -15,9 +15,5 @@ public enum GamaVehiculo {
 	public int getPrecio() {
 		return precioGama;
 	}
-	
-	
-	
-	
-	
+
 }
