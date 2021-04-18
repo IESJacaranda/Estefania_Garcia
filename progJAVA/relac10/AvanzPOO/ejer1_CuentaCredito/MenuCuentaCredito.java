@@ -6,13 +6,6 @@ import ejeHERENCIA.ejer1.Titular;
 
 public class MenuCuentaCredito {
 	
-	public static void main(String[] args) {
-		
-		gui();
-		
-		
-	}
-
 	
 	
 	public static final String MENU = "\nElija una opción: \n"
@@ -26,11 +19,9 @@ public class MenuCuentaCredito {
 		System.out.println(MENU);
 	}
 	
-	public static void gui() {
+	public static void gui(CuentaCredito c) {
 		
 		Scanner teclado = new Scanner(System.in);
-		Titular t = new Titular();
-		CuentaCredito c = new CuentaCredito(500, t);
 		
 		
 		int opcion = 0;
