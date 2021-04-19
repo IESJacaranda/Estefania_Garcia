@@ -1,4 +1,4 @@
-package relac10.AvanzPOO.ejer2;
+package relac10.AvanzPOO.ejer2_AlquilerVehiculos;
 
 public enum GamaVehiculo {
 	

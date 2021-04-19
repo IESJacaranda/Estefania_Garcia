@@ -1,6 +1,6 @@
-package relac10.AvanzPOO.ejer2;
+package relac10.AvanzPOO.ejer2_AlquilerVehiculos;
 
-import relac10.AvanzPOO.ejer2.GamaException;
+import relac10.AvanzPOO.ejer2_AlquilerVehiculos.GamaException;
 
 public class Microbus extends AbstractVehiculo {
 
@@ -25,5 +25,14 @@ public class Microbus extends AbstractVehiculo {
 
 	public void setNumPlazas(int numPlazas) {
 		this.numPlazas = numPlazas;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Los datos del Microbus son: "
+				+ "\nNúmero de plazas = " + numPlazas + "."+
+				"\nMatricula = " + matricula + "."
+				+ "\nGama = " + tipoGama + ".";
 	}
 }

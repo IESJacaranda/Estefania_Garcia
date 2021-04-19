@@ -1,6 +1,6 @@
-package relac10.AvanzPOO.ejer2;
+package relac10.AvanzPOO.ejer2_AlquilerVehiculos;
 
-import relac10.AvanzPOO.ejer2.GamaException;
+import relac10.AvanzPOO.ejer2_AlquilerVehiculos.GamaException;
 
 public class Furgoneta extends AbstractVehiculo {
 
@@ -26,5 +26,15 @@ public class Furgoneta extends AbstractVehiculo {
 
 	public void setPma(double pma) {
 		this.pma = pma;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Los datos de su furgoneta son:"
+				+ "\nPMA = " + pma + "."
+				+ "\nMatricula = " + matricula + "."
+				+ "\nGama =" + tipoGama
+				+ ".";
 	}
 }

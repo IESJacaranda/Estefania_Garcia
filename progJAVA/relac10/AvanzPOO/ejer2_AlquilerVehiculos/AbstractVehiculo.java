@@ -1,7 +1,7 @@
-package relac10.AvanzPOO.ejer2;
+package relac10.AvanzPOO.ejer2_AlquilerVehiculos;
 
-import relac10.AvanzPOO.ejer2.GamaException;
-import relac10.AvanzPOO.ejer2.GamaVehiculo;
+import relac10.AvanzPOO.ejer2_AlquilerVehiculos.GamaException;
+import relac10.AvanzPOO.ejer2_AlquilerVehiculos.GamaVehiculo;
 
 public abstract class AbstractVehiculo {
 	

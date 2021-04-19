@@ -1,7 +1,7 @@
-package relac10.AvanzPOO.ejer2;
+package relac10.AvanzPOO.ejer2_AlquilerVehiculos;
 
-import relac10.AvanzPOO.ejer2.CombustibleException;
-import relac10.AvanzPOO.ejer2.GamaException;
+import relac10.AvanzPOO.ejer2_AlquilerVehiculos.CombustibleException;
+import relac10.AvanzPOO.ejer2_AlquilerVehiculos.GamaException;
 
 public class Coche extends AbstractVehiculo {
 	
@@ -25,12 +25,12 @@ public class Coche extends AbstractVehiculo {
 		double precio=0;
 		
 		if(getTipoCombustible().equalsIgnoreCase("GASOLINA") ) {
-			precio = SUPLEM_GASOLINA + super.calcularAlquiler();
+			precio = SUPLEM_GASOLINA;
 		}
 		else if(getTipoCombustible() == "DIESEL") {
-			precio = SUPLEM_DIESEL + super.calcularAlquiler();
+			precio = SUPLEM_DIESEL;
 		}
-		return precio ;
+		return precio + super.calcularAlquiler();
 	}
 
 	public String getTipoCombustible() {
@@ -39,6 +39,17 @@ public class Coche extends AbstractVehiculo {
 
 	public void setTipoCombustible(String tipoCombustible) {
 		this.tipoCombustible = tipoCombustible;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Los datos de su coche son:"
+				+ "\nTipo de combustible = " + tipoCombustible + "."
+				+ "\nMatricula = " + matricula + "."
+				+ "\nGama =" + tipoGama
+				+ ".";
 	}
 	
 	
