@@ -97,6 +97,20 @@ public class Mago extends AbstractPersonaje {
 	public void setHechizos(String[] hechizos) {
 		this.hechizos = hechizos;
 	}
+
+
+
+	@Override
+	public int compareTo(Object o) {
+		int result = 0;
+		
+		if(this.puntosVidaActual<((AbstractPersonaje) o).getPuntosVidaActual()) {
+			result = 1;
+		}else if(this.puntosVidaActual>((AbstractPersonaje) o).getPuntosVidaActual()) {
+			result = -1;
+		}
+		return result;
+	}
 	
 	
 

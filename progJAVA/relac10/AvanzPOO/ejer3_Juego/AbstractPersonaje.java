@@ -5,7 +5,7 @@ import relac10.AvanzPOO.ejer3_Juego.Excep.InteligenciaException;
 import relac10.AvanzPOO.ejer3_Juego.Excep.PuntosVidaException;
 import relac10.AvanzPOO.ejer3_Juego.Excep.RazaException;
 
-public abstract class AbstractPersonaje {
+public abstract class AbstractPersonaje implements Comparable{
 	
 	private static final int MAXIMA_F_I = 20;
 	protected static final int VIDA_MAXIMA = 100;
@@ -105,6 +105,13 @@ public abstract class AbstractPersonaje {
 	public String toString() {
 		return "Nombre: " + getNombre() + ", raza: " + getRaza() + ", fuerza: " + getFuerza() + ", inteligencia: "
 				+ getInteligencia() + ", puntos de vida máximos: " + getPuntosVidaMax() + ", puntos de vida actual: " + getPuntosVidaActual() + ".";
+	}
+
+
+
+	public int compareTo(AbstractPersonaje o) {
+		
+		return 0;
 	}
 	
 	

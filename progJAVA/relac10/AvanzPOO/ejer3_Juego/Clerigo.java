@@ -1,7 +1,5 @@
 package relac10.AvanzPOO.ejer3_Juego;
 
-import java.util.Arrays;
-
 import relac10.AvanzPOO.ejer3_Juego.Excep.ClerigoFuerzaException;
 import relac10.AvanzPOO.ejer3_Juego.Excep.ClerigoInteligenciaException;
 import relac10.AvanzPOO.ejer3_Juego.Excep.FuerzaException;
@@ -55,6 +53,21 @@ public class Clerigo extends AbstractPersonaje {
 	public void setDios(String dios) {
 		this.dios = dios;
 	}
+
+
+	@Override
+	public int compareTo(Object o) {
+		int result = 0;
+		
+		if(this.puntosVidaActual<((AbstractPersonaje) o).getPuntosVidaActual()) {
+			result = 1;
+		}else if(this.puntosVidaActual>((AbstractPersonaje) o).getPuntosVidaActual()) {
+			result = -1;
+		}
+		return result;
+	}
+
+	
 	
 	
 
