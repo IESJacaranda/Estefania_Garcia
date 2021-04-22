@@ -60,7 +60,7 @@ public class Mago extends AbstractPersonaje {
 		
 	}
 	
-	//solucionar NullPointer al buscar y borrar el hechizo
+	
 	
 	public void lanzaHechizo(AbstractPersonaje p, String hechizo) {
 		//si el personaje tiene menos de 10 puntos lo dejo a 0 con el set
@@ -101,12 +101,12 @@ public class Mago extends AbstractPersonaje {
 
 
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(AbstractPersonaje p) {
 		int result = 0;
 		
-		if(this.puntosVidaActual<((AbstractPersonaje) o).getPuntosVidaActual()) {
+		if(this.puntosVidaActual<(p.getPuntosVidaActual())) {
 			result = 1;
-		}else if(this.puntosVidaActual>((AbstractPersonaje) o).getPuntosVidaActual()) {
+		}else if(this.puntosVidaActual>(p.getPuntosVidaActual())) {
 			result = -1;
 		}
 		return result;

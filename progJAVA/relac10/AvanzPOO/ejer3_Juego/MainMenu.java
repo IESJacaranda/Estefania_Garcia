@@ -39,7 +39,6 @@ public class MainMenu {
 		
 		boolean a = true;
 		
-		AbstractPersonaje  p = null;
 		List<AbstractPersonaje> listaPersonajes = new ArrayList<AbstractPersonaje>(100);
 		
 		while(a) {
@@ -76,6 +75,7 @@ public class MainMenu {
 				System.out.println("\n¿A quién quiere lanzarle un hechizo?\n");
 				String n2 = teclado.nextLine();
 				
+				
 				for (AbstractPersonaje personaje: listaPersonajes) {
 					if(personaje instanceof Mago && personaje.getNombre().equalsIgnoreCase(n1)){
 						System.out.println("Su lista contiene los siguientes hechizos:\n"+((Mago)personaje).getHechizos().toString());
@@ -85,11 +85,14 @@ public class MainMenu {
 				System.out.println("\n¿Qué hechizo quiere lanzar?:\n");
 				String hechizoLanza = teclado.nextLine();
 				
+				
 				for (AbstractPersonaje personaje: listaPersonajes) {
 					for(AbstractPersonaje recibeHechizo: listaPersonajes) {
-						if((personaje instanceof Mago && personaje.getNombre().equalsIgnoreCase(n1))
+						if((personaje instanceof Mago && personaje.getNombre().equalsIgnoreCase(n1) && ((Mago)personaje).getHechizos()!=null)
 								&& recibeHechizo.getNombre().equalsIgnoreCase(n2)) {
 							((Mago) personaje).lanzaHechizo(recibeHechizo, hechizoLanza);
+					}else {
+						
 					}
 				}
 				}
@@ -159,7 +162,7 @@ public class MainMenu {
 			try {
 				p = new Mago(teclado.nextLine(), teclado.nextLine(), Integer.parseInt(teclado.nextLine()), 
 									Integer.parseInt(teclado.nextLine()), Integer.parseInt(teclado.nextLine()));
-				System.out.println("Su personaje ha sido creado satisfactoriamente.");
+				System.out.println("\nSu personaje ha sido creado satisfactoriamente.");
 			} catch (NumberFormatException | RazaException | FuerzaException | InteligenciaException
 					| PuntosVidaException | MagoInteligenciaException | MagoFuerzaException e) {
 				System.out.println(e.getMessage());
@@ -172,7 +175,7 @@ public class MainMenu {
 			try {
 				p = new Clerigo(teclado.nextLine(), teclado.nextLine(), Integer.parseInt(teclado.nextLine()), 
 										Integer.parseInt(teclado.nextLine()), Integer.parseInt(teclado.nextLine()), teclado.nextLine());
-				System.out.println("Su personaje ha sido creado satisfactoriamente.");
+				System.out.println("\nSu personaje ha sido creado satisfactoriamente.");
 			} catch (NumberFormatException | RazaException | FuerzaException | InteligenciaException
 					| PuntosVidaException | ClerigoFuerzaException | ClerigoInteligenciaException e) {
 				System.out.println(e.getMessage());
@@ -182,6 +185,6 @@ public class MainMenu {
 		return p;
 	}
 		
-		
+	
 
 }

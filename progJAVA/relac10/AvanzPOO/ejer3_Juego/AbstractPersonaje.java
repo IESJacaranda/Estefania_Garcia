@@ -5,7 +5,7 @@ import relac10.AvanzPOO.ejer3_Juego.Excep.InteligenciaException;
 import relac10.AvanzPOO.ejer3_Juego.Excep.PuntosVidaException;
 import relac10.AvanzPOO.ejer3_Juego.Excep.RazaException;
 
-public abstract class AbstractPersonaje implements Comparable{
+public abstract class AbstractPersonaje implements Comparable<AbstractPersonaje>{
 	
 	private static final int MAXIMA_F_I = 20;
 	protected static final int VIDA_MAXIMA = 100;
